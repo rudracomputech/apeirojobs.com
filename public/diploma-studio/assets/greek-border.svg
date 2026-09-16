@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 794 1123" width="794" height="1123">
+  <defs>
+    <!-- Greek Key Tile Horizontal (width 32, height 24) -->
+    <pattern id="greekKeyH" width="32" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 0,4 L 28,4 L 28,20 L 12,20 L 12,10 L 20,10 L 20,14 L 16,14" fill="none" stroke="#173b75" stroke-width="2.5" stroke-linecap="square"/>
+      <path d="M 32,4 L 32,20" fill="none" stroke="#173b75" stroke-width="2.5"/>
+    </pattern>
+
+    <!-- Greek Key Tile Vertical (width 24, height 32) -->
+    <pattern id="greekKeyV" width="24" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 4,0 L 4,28 L 20,28 L 20,12 L 10,12 L 10,20 L 14,20 L 14,16" fill="none" stroke="#173b75" stroke-width="2.5" stroke-linecap="square"/>
+      <path d="M 4,32 L 20,32" fill="none" stroke="#173b75" stroke-width="2.5"/>
+    </pattern>
+
+    <!-- Full Greek Key Unit -->
+    <pattern id="greekKeyFret" width="28" height="28" patternUnits="userSpaceOnUse">
+      <!-- Outer track -->
+      <path d="M 0,2 H 26 V 26 H 4 V 6 H 20 V 22 H 8 V 10 H 16 V 18 H 12" fill="none" stroke="#19488a" stroke-width="2.2" stroke-linejoin="miter"/>
+    </pattern>
+  </defs>
+
+  <!-- Outer Solid Navy Border -->
+  <rect x="6" y="6" width="782" height="1111" fill="none" stroke="#15366c" stroke-width="6"/>
+
+  <!-- Greek Key Fret Band (Top, Bottom, Left, Right) -->
+  <!-- Top Band -->
+  <rect x="12" y="12" width="770" height="28" fill="url(#greekKeyFret)"/>
+  <!-- Bottom Band -->
+  <rect x="12" y="1083" width="770" height="28" fill="url(#greekKeyFret)"/>
+  <!-- Left Band -->
+  <rect x="12" y="12" width="28" height="1099" fill="url(#greekKeyFret)"/>
+  <!-- Right Band -->
+  <rect x="754" y="12" width="28" height="1099" fill="url(#greekKeyFret)"/>
+
+  <!-- Inner Solid Framing Line in Navy -->
+  <rect x="40" y="40" width="714" height="1043" fill="none" stroke="#15366c" stroke-width="2.5"/>
+
+  <!-- Inner Gold Double Inset Border -->
+  <rect x="45" y="45" width="704" height="1033" fill="none" stroke="#c29623" stroke-width="1.8"/>
+  <rect x="48" y="48" width="698" height="1027" fill="none" stroke="#c29623" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Corner Ornamental Accents -->
+  <g stroke="#c29623" stroke-width="1.5" fill="none">
+    <!-- Top-Left -->
+    <rect x="42" y="42" width="8" height="8" fill="#15366c"/>
+    <!-- Top-Right -->
+    <rect x="744" y="42" width="8" height="8" fill="#15366c"/>
+    <!-- Bottom-Left -->
+    <rect x="42" y="1073" width="8" height="8" fill="#15366c"/>
+    <!-- Bottom-Right -->
+    <rect x="744" y="1073" width="8" height="8" fill="#15366c"/>
+  </g>
+</svg>

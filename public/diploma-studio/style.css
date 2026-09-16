@@ -1,0 +1,1084 @@
+  /* ═══════════════════════════════════════════════════════════
+    AICVPS Official Diploma Certificate – Master Design System
+    Exact Pixel-Matched to Official Paramedical Reference
+    Supports Screen & High-Resolution A4 Vector Print
+  ═══════════════════════════════════════════════════════════ */
+
+  /* ── DESIGN TOKENS ── */
+  :root {
+    /* Brand Palette */
+    --c-navy-dark: #0c1b33;
+    --c-navy-primary: #143a75;
+    --c-navy-deep: #0e264d;
+    --c-navy-accent: #19488a;
+    --c-gold-primary: #c29623;
+    --c-gold-light: #e0b548;
+    --c-gold-dark: #9a7212;
+    --c-paper-bg: #faf8f2;
+    --c-text-black: #0a0f1d;
+    --c-text-muted: #334155;
+
+    /* App UI Chrome */
+    --ui-bg-app: #0b1329;
+    --ui-bg-sidebar: #0f172a;
+    --ui-bg-card: #1e293b;
+    --ui-border: rgba(255, 255, 255, 0.1);
+    --ui-teal: #06b6d4;
+    --ui-teal-glow: rgba(6, 182, 212, 0.35);
+
+    /* Dimensions */
+    --cert-width: 794px;
+    --cert-height: 1123px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+  }
+
+  /* ── RESET & BASE ── */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--ui-bg-app);
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #f8fafc;
+    background-color: var(--ui-bg-app);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 800 !important;
+  }
+
+  /* ══════════════════════════════════════════
+    APP SHELL LAYOUT
+  ══════════════════════════════════════════ */
+  .app-shell {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  /* ══════════════════════════════════════════
+    SIDEBAR FORM CONTROLS
+  ══════════════════════════════════════════ */
+  .sidebar {
+    width: 400px;
+    flex-shrink: 0;
+    background: var(--ui-bg-sidebar);
+    border-right: 1px solid var(--ui-border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 20;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 transparent;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+
+  .sidebar-header {
+    padding: 24px 20px 18px;
+    background: linear-gradient(180deg, #131d36 0%, #0f172a 100%);
+    border-bottom: 1px solid rgba(194, 150, 35, 0.25);
+    text-align: center;
+  }
+
+  .sidebar-logo {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 3px;
+    box-shadow: 0 0 0 3px var(--c-gold-primary), 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .sidebar-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .sidebar-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--c-gold-light);
+    letter-spacing: 0.04em;
+  }
+
+  .sidebar-sub {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  .diploma-form {
+    padding: 18px 16px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .quick-actions-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .form-section {
+    background: var(--ui-bg-card);
+    border: 1px solid var(--ui-border);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-section:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+  }
+
+  .section-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ui-teal);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .form-row-2 {
+    display: flex;
+    gap: 10px;
+  }
+
+  .flex-2 {
+    flex: 2;
+  }
+
+  label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 4px;
+  }
+
+  .req {
+    color: #f87171;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    color: #f8fafc;
+    font-size: 0.85rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    border-color: var(--ui-teal);
+    background: rgba(6, 182, 212, 0.08);
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+  }
+
+  /* File Drop Zone */
+  .file-drop-zone {
+    position: relative;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(15, 23, 42, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .file-drop-zone:hover {
+    border-color: var(--ui-teal);
+    background: rgba(6, 182, 212, 0.06);
+  }
+
+  .file-drop-zone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .drop-zone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    pointer-events: none;
+  }
+
+  .drop-zone-content span:first-of-type {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #e2e8f0;
+  }
+
+  .drop-hint {
+    font-size: 0.65rem;
+    color: #94a3b8;
+  }
+
+  .file-drop-zone img {
+    width: 44px;
+    height: 52px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid var(--c-gold-primary);
+    flex-shrink: 0;
+  }
+
+  .file-drop-zone img.seal-preview-thumb {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 2px;
+  }
+
+  .file-drop-zone img.scanner-preview-thumb {
+    width: 46px;
+    height: 46px;
+    border-radius: 4px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 2px;
+  }
+
+  /* Buttons */
+  .btn {
+    width: 100%;
+    padding: 11px 16px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary-glow {
+    background: linear-gradient(135deg, #0e7490 0%, #0369a1 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35);
+  }
+
+  .btn-primary-glow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(6, 182, 212, 0.5);
+  }
+
+  .btn-secondary-outline {
+    background: transparent;
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+  }
+
+  .btn-secondary-outline:hover {
+    background: rgba(56, 189, 248, 0.1);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #f8fafc;
+  }
+
+  .btn-sm {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    width: auto;
+  }
+
+  /* ══════════════════════════════════════════
+    PREVIEW AREA
+  ══════════════════════════════════════════ */
+  .preview-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #0f172a;
+    overflow: hidden;
+  }
+
+  .preview-toolbar {
+    padding: 10px 24px;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid var(--ui-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+  }
+
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .toolbar-badge {
+    background: rgba(6, 182, 212, 0.15);
+    color: var(--ui-teal);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+  }
+
+  .toolbar-hint {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+
+  .toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tool-btn {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--ui-border);
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+
+  .tool-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  .zoom-level {
+    font-size: 0.78rem;
+    color: #cbd5e1;
+    font-weight: 600;
+    min-width: 44px;
+    text-align: center;
+  }
+
+  .preview-canvas {
+    flex: 1;
+    overflow: auto;
+    padding: 36px 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 transparent;
+  }
+
+  .diploma-wrapper {
+    transform-origin: top center;
+    transition: transform 0.2s ease;
+  }
+
+  /* ════════════════════════════════════════════════════════════
+    THE DIPLOMA CERTIFICATE (A4 - 794px x 1123px)
+    Matching the Paramedical reference image
+  ════════════════════════════════════════════════════════════ */
+  .diploma-certificate {
+    width: var(--cert-width);
+    height: var(--cert-height);
+    min-height: var(--cert-height);
+    max-height: var(--cert-height);
+    background-color: var(--c-paper-bg);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(194, 150, 35, 0.4);
+    display: block;
+  }
+
+  /* 1. GREEK KEY FRAME (SVG OVERLAY) */
+  .greek-border-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .greek-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* 2. REPEATING COLOR BACKGROUND WATERMARK TEXT */
+  .parchment-watermark-text {
+    position: absolute;
+    inset: 48px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.85;
+    overflow: hidden;
+  }
+
+  .parchment-watermark-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* 3. CENTER LARGE COLORED CREST WATERMARK */
+  .center-crest-watermark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    height: 480px;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0.16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .center-crest-watermark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: saturate(1.4) contrast(1.1);
+  }
+
+  /* 4. INNER CERTIFICATE CONTAINER */
+  .certificate-inner {
+    position: absolute;
+    inset: 48px 52px 42px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* ── HEADER: SERIAL NO + EMBLEM LOGO ── */
+  .cert-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 92px;
+    position: relative;
+  }
+
+  .cert-header-left {
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  .serial-tag {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: var(--c-text-black);
+    letter-spacing: 0.02em;
+  }
+
+  .serial-tag strong {
+    font-weight: 800;
+  }
+
+  .serial-tag span {
+    font-weight: 800;
+    margin-left: 2px;
+  }
+
+  .cert-header-center {
+    flex: 0 0 auto;
+    text-align: center;
+  }
+
+  .logo-badge-container {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .cert-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .cert-header-right {
+    flex: 1;
+  }
+
+  /* ── MAIN ORGANIZATION TITLE ── */
+  .cert-org-block {
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .org-title-main {
+    font-family: 'Libre Baskerville', 'Times New Roman', serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--c-navy-primary);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+  }
+
+  .org-meta-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding: 0 4px;
+    gap: 12px;
+  }
+
+  .org-meta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .org-meta-col.left {
+    text-align: left;
+  }
+
+  .org-meta-col.right {
+    text-align: right;
+  }
+
+  .meta-item {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--c-text-black);
+    opacity: 0.88;
+    line-height: 1.35;
+  }
+
+  .meta-bullet {
+    color: var(--c-navy-primary);
+    font-size: 0.65rem;
+    margin-right: 2px;
+  }
+
+  /* ── DIPLOMA BANNER & PHOTO ROW ── */
+  .diploma-banner-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 6px 0 4px;
+    height: 80px;
+  }
+
+  /* Blue cartouche with gold borders and filigree scrollwork matching the attached reference */
+  .diploma-cartouche {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 470px;
+    height: 56px;
+    max-width: 100%;
+  }
+
+  .cartouche-body {
+    width: 65%;
+    height: 100%;
+    background: url('cartouche-banner-frame.png') no-repeat center center;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  /* Filigree is integrated into the high-res cartouche frame */
+  .cartouche-filigree-left,
+  .cartouche-filigree-right {
+    display: none;
+  }
+
+  .diploma-gothic-text {
+    font-family: 'UnifrakturCook', 'MedievalSharp', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0, 15, 60, 0.95), 0 2px 4px rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    padding-bottom: 2px;
+  }
+
+  /* Student Photo Box */
+  .student-photo-frame {
+    position: absolute;
+    right: 0;
+    top: -2px;
+    width: 98px;
+    height: 122px;
+    border: 2.5px solid var(--c-gold-primary);
+    border-radius: 3px;
+    background: #e2e8f0;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .student-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .photo-alt-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CERTIFICATE BODY LINES ── */
+  .cert-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
+    margin: 6px 0;
+  }
+
+  .cert-line {
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  /* "This is to certify that Mr./Ms." */
+  .certify-text {
+    font-family: 'IM Fell English', 'Playfair Display', Georgia, serif;
+    font-size: 1.78rem;
+    font-style: italic;
+    color: var(--c-text-black);
+  }
+
+  /* Student Name: Large bold clean font */
+  .student-name-text {
+    font-family: 'Inter', 'Liberation Sans', Arial, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0468d7;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  /* "Son/Daughter of" */
+  .parent-label {
+    font-family: 'IM Fell English', 'Playfair Display', Georgia, serif;
+    font-size: 1.72rem;
+    font-style: italic;
+    color: var(--c-text-black);
+  }
+
+  /* Father Name: Large bold clean font */
+  .parent-name-text {
+    font-family: 'Inter', 'Liberation Sans', Arial, sans-serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #000000;
+    letter-spacing: -0.01em;
+  }
+
+  /* Enrollment Line */
+  .enroll-text {
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    color: var(--c-text-black);
+  }
+
+  .enroll-text strong {
+    font-family: 'Inter', 'Liberation Sans', Arial, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    font-style: normal;
+    color: #000000;
+    margin-left: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Institute & Location */
+  .institute-text {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--c-navy-primary);
+    line-height: 1.35;
+  }
+
+  /* "has been Awarded the Diploma of" */
+  .awarded-text {
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    color: var(--c-text-black);
+  }
+
+  /* Course Category */
+  .course-category-text {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.32rem;
+    font-weight: 700;
+    color: var(--c-text-black);
+    letter-spacing: 0.01em;
+  }
+
+  /* Diploma Course Title (Large Bold) */
+  .course-title-text {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.46rem;
+    font-weight: 800;
+    color: #0468d7;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+  }
+
+  /* Division line */
+  .division-text {
+    font-family: Georgia, serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    color: var(--c-text-black);
+  }
+
+  .division-text sup {
+    font-size: 0.6em;
+    line-height: 0;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+    margin-left: 0.5px;
+  }
+
+  /* "given under the seal of" */
+  .given-seal-text {
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    color: var(--c-text-black);
+  }
+
+  /* Council Name in Elegant Blue Script */
+  .council-script-text {
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 1.85rem;
+    color: var(--c-navy-primary);
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    font-weight: 600;
+    white-space: nowrap;
+    font-style: italic;
+  }
+
+  /* ── FOOTER ROW ── */
+  .cert-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 94px;
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .footer-col {
+    flex: 1;
+  }
+
+  /* Place: Left */
+  .footer-left {
+    text-align: left;
+    padding-bottom: 8px;
+  }
+
+  .place-text {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #000000;
+  }
+
+  /* Scanner: QR Code */
+  .footer-scanner {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4px;
+  }
+
+  .scanner-wrap {
+    width: 72px;
+    height: 72px;
+    background: #ffffff;
+    padding: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .footer-scanner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Issue Date & India Seal: Center */
+  .footer-center {
+    flex: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .footer-seal-wrapper {
+    width: 98px;
+    height: 98px;
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.92;
+    pointer-events: none;
+  }
+
+  .footer-seal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .issue-date-text {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #000000;
+    margin-top: auto;
+    position: relative;
+    z-index: 3;
+  }
+
+  .issue-date-text strong {
+    font-weight: 800;
+  }
+
+  /* Director Signature: Right */
+  .footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .sig-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+  }
+
+  .sig-img-wrap {
+    width: 110px;
+    height: 38px;
+    margin-bottom: -4px;
+  }
+
+  .director-sig-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .sig-line {
+    width: 110px;
+    height: 1.5px;
+    background-color: var(--c-navy-primary);
+    margin-bottom: 3px;
+  }
+
+  .sig-title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #000000;
+  }
+
+  /* ════════════════════════════════════════════════════════════
+    EXACT A4 PRINT / PDF EXPORT STYLES
+    Ensures backgrounds, borders, and SVGs are 100% rendered!
+  ════════════════════════════════════════════════════════════ */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  @media print {
+
+    /* Force print background graphics in all browsers */
+    html,
+    body {
+      background: transparent !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 210mm !important;
+      height: 297mm !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      font-weight: 800 !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    /* Hide all UI elements */
+    .no-print,
+    .sidebar,
+    .preview-toolbar,
+    .quick-actions-bar,
+    .print-floating-bar {
+      display: none !important;
+    }
+
+    .app-shell {
+      display: block !important;
+      height: auto !important;
+      width: 100% !important;
+      overflow: visible !important;
+    }
+
+    .preview-area {
+      background: transparent !important;
+      overflow: visible !important;
+      height: auto !important;
+      width: 100% !important;
+    }
+
+    .preview-canvas {
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      display: block !important;
+    }
+
+    .diploma-wrapper {
+      transform: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 210mm !important;
+      height: 297mm !important;
+    }
+
+    .diploma-certificate {
+      box-shadow: none !important;
+      margin: 0 !important;
+      width: 210mm !important;
+      height: 297mm !important;
+      max-height: 297mm !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      position: relative !important;
+    }
+  }

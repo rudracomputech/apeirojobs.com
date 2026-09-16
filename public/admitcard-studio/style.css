@@ -1,0 +1,870 @@
+/* ==========================================================================
+   All India Council For Vocational & Paramedical Science - Admit Card System
+   Modern Editor UI + Authentic A4 Landscape Certificate Layout + Print CSS
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=UnifrakturMaguntia&display=swap');
+
+@font-face {
+  font-family: 'UnifrakturMaguntia';
+  src: url('assets/fonts/UnifrakturMaguntia.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Old English Text MT';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: local('Old English Text MT'),
+    url('assets/fonts/oldenglishtextmt.woff') format('woff'),
+    url('https://fonts.cdnfonts.com/s/150918/oldenglishtextmt.woff') format('woff');
+}
+
+:root {
+  /* Editor Theme */
+  --bg-primary: #0b1120;
+  --bg-surface: #131d33;
+  --bg-surface-elevated: #1e2c4a;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-focus: #3b82f6;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-blue: #2563eb;
+  --accent-cyan: #06b6d4;
+  --accent-gold: #d97706;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+
+  /* Certificate Palette (Matches Official AICVPS Admit Card) */
+  --cert-navy: #134685;
+  --cert-blue-deep: #0f3666;
+  --cert-blue-light: #205ca8;
+  --cert-text-dark: #1e293b;
+  --cert-text-blue: #16437c;
+  --cert-bg: #ffffff;
+  --cert-border-blue: #175494;
+  --cert-gold-flourish: #b38e44;
+  --cert-pill-bg: #134685;
+
+  /* Exact A4 Landscape Aspect Ratio (1040 x 735) */
+  --cert-width: 1040px;
+  --cert-height: 735px;
+}
+
+/* Reset & Global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════════════════════════
+   APP HEADER & NAVIGATION
+   ══════════════════════════════════════════════ */
+.app-header {
+  background: rgba(19, 29, 51, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-container {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 2px;
+  box-shadow: 0 0 16px rgba(37, 99, 235, 0.35);
+  object-fit: contain;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ══════════════════════════════════════════════
+   BUTTONS & BADGES
+   ══════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+.btn-secondary {
+  background: var(--bg-surface-elevated);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: #27385c;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #ffffff;
+}
+
+.btn-icon {
+  font-size: 1rem;
+}
+
+/* ══════════════════════════════════════════════
+   MAIN LAYOUT WORKSPACE
+   ══════════════════════════════════════════════ */
+.workspace-layout {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 450px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 1380px) {
+  .workspace-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   LEFT PANEL: FORM EDITOR
+   ══════════════════════════════════════════════ */
+.editor-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 14px;
+}
+
+.panel-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-section {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Photo Upload Box */
+.photo-upload-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: #0f172a;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.photo-preview-thumb {
+  width: 54px;
+  height: 68px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #1e293b;
+}
+
+.photo-upload-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ══════════════════════════════════════════════
+   RIGHT PANEL: LIVE CERTIFICATE PREVIEW
+   ══════════════════════════════════════════════ */
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.preview-toolbar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.preview-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulseDot 1.6s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.zoom-btn {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.zoom-btn:hover {
+  background: #27385c;
+}
+
+/* Certificate Viewport Stage */
+.cert-viewport {
+  background: #090e18;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: inset 0 4px 24px rgba(0, 0, 0, 0.5);
+  min-height: 780px;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   THE AUTHENTIC ADMIT CARD SHEET (A4 Landscape exact proportions)
+   ═════════════════════════════════════════════════════════════════════════════ */
+.admitcard-sheet {
+  width: var(--cert-width);
+  height: var(--cert-height);
+  background-color: var(--cert-bg);
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  user-select: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  transform-origin: top center;
+  transition: transform 0.15s ease-out;
+  flex-shrink: 0;
+}
+
+/* Greek Key Meander Border HD overlay (Matches Authentic Border on All Edges) */
+.cert-greek-border {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Central Watermark Crest & Repeating Security Text Pattern */
+.cert-watermark-pattern {
+  position: absolute;
+  top: 38px;
+  left: 44px;
+  width: calc(100% - 88px);
+  height: calc(100% - 76px);
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.85;
+}
+
+.cert-watermark-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cert-watermark-crest {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%);
+  width: 320px;
+  height: 320px;
+  object-fit: contain;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 2;
+  filter: grayscale(20%);
+}
+
+/* Inner Certificate Content Container (Strictly inside the double borders) */
+.cert-content {
+  position: relative;
+  z-index: 5;
+  padding: 44px 52px 46px 52px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ── Top Bar: Roll No & Enrollment No + Crest Emblem ── */
+.cert-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+.cert-num-badge {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--cert-text-blue);
+  letter-spacing: 0.2px;
+}
+
+.cert-top-emblem-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-top-emblem {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* ── Council Header Title ── */
+.cert-header-block {
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.cert-council-title {
+  font-family: 'Times New Roman', 'Playfair Display', serif;
+  font-size: 35px;
+  font-weight: 900;
+  color: var(--cert-navy);
+  letter-spacing: 0px;
+  margin-bottom: 5px;
+}
+
+/* Bullets: 2 columns */
+.cert-bullets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2.5px;
+  column-gap: 36px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.bullet-item {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--cert-text-blue);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.35;
+}
+
+.bullet-dot {
+  font-size: 13px;
+  line-height: 1;
+  color: var(--cert-text-blue);
+}
+
+/* ── Center Cartouche: "Admit Card" (Matches Reference Banner Layout) ── */
+.cert-cartouche-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+  width: fit-content;
+}
+
+.cartouche-bracket {
+  height: 60px;
+  width: 50px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.cartouche-bracket.left {
+  margin-right: -16px;
+}
+
+.cartouche-bracket.right {
+  margin-left: -16px;
+}
+
+.cert-cartouche-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 60px;
+  min-width: 250px;
+  max-width: 650px;
+  height: 46px;
+  background: linear-gradient(180deg, #104e95 0%, #0d4281 50%, #082d5a 100%);
+  border: 2px solid #ffffff;
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 4.5px #c8963e,
+    0 4px 10px rgba(0, 0, 0, 0.22);
+  z-index: 2;
+}
+
+.cert-cartouche-text {
+  font-family: 'Fraktur', cursive, serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 0px #000000, 2px 2px 3px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+  white-space: nowrap;
+
+}
+
+/* ── Main Body: Details Table (Left) + Student Photo (Right) ── */
+.cert-body-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.cert-details-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: baseline;
+  font-size: 16.5px;
+  line-height: 1.4;
+}
+
+.detail-label {
+  width: 140px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 800;
+  color: var(--cert-text-blue);
+  flex-shrink: 0;
+  letter-spacing: 0.1px;
+}
+
+.detail-colon {
+  width: 18px;
+  font-weight: 800;
+  color: var(--cert-text-blue);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.detail-value {
+  flex: 1;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 700;
+  color: var(--cert-text-dark);
+  letter-spacing: 0.2px;
+}
+
+/* Candidate Photo Mount */
+.cert-photo-column {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 28px;
+  margin-top: 0;
+}
+
+.cert-photo-frame {
+  width: 110px;
+  height: 135px;
+  border: 1.5px solid #000000;
+  background: #f1f5f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Signatures & Stamp Section (3 columns) ── */
+.cert-signatures-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: end;
+  padding-top: 8px;
+  margin-bottom: 6px;
+}
+
+.sig-col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sig-col.col-left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.sig-col.col-center {
+  align-items: center;
+  text-align: center;
+}
+
+.sig-col.col-right {
+  align-items: flex-end;
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* Stamp & Sig overlay in right column */
+.controller-stamp-wrap {
+  position: absolute;
+  bottom: 22px;
+  right: 28px;
+  width: 116px;
+  height: 116px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.controller-stamp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sig-dots-line {
+  border-bottom: 2.2px dotted var(--cert-text-blue);
+  height: 2px;
+  width: 210px;
+  margin-bottom: 6px;
+}
+
+.sig-title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--cert-text-blue);
+  letter-spacing: 0.1px;
+}
+
+/* ── Bottom Disclaimer ── */
+.cert-disclaimer {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cert-text-blue);
+  line-height: 1.4;
+  margin-top: 4px;
+  margin-bottom: 0;
+  text-align: left;
+  letter-spacing: 0.1px;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   PRINT STYLES FOR EXACT A4 LANDSCAPE OUTPUT
+   ═════════════════════════════════════════════════════════════════════════════ */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide all editor & UI chrome */
+  .no-print,
+  .app-header,
+  .editor-panel,
+  .preview-toolbar,
+  .print-floating-bar {
+    display: none !important;
+  }
+
+  .workspace-layout {
+    display: block !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .preview-panel {
+    display: block !important;
+  }
+
+  .cert-viewport {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  .admitcard-sheet {
+    box-shadow: none !important;
+    width: 297mm !important;
+    height: 210mm !important;
+    max-width: 297mm !important;
+    max-height: 210mm !important;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    margin: 0 auto !important;
+    transform: none !important;
+  }
+
+  .cert-content {
+    padding: 12mm 16mm 12mm 16mm !important;
+  }
+}

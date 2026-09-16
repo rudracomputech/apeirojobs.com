@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Circular text path -->
+    <path id="circlePathTop" d="M 30,100 A 70,70 0 1,1 170,100" fill="none" />
+    <path id="circlePathBottom" d="M 170,100 A 70,70 0 1,1 30,100" fill="none" />
+  </defs>
+  
+  <!-- Outer stamp circle -->
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#1d4ed8" stroke-width="3" stroke-dasharray="8 3" opacity="0.85" />
+  <circle cx="100" cy="100" r="84" fill="none" stroke="#1e40af" stroke-width="2" opacity="0.85" />
+  <circle cx="100" cy="100" r="54" fill="none" stroke="#1e40af" stroke-width="1.5" opacity="0.8" />
+  
+  <!-- Stars -->
+  <polygon points="100,56 102,62 108,62 103,66 105,72 100,68 95,72 97,66 92,62 98,62" fill="#1e40af" opacity="0.8" />
+  <polygon points="100,144 102,138 108,138 103,134 105,128 100,132 95,128 97,134 92,138 98,138" fill="#1e40af" opacity="0.8" />
+  
+  <!-- Curved Text -->
+  <text font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#1e40af" letter-spacing="1.5" opacity="0.9">
+    <textPath href="#circlePathTop" startOffset="50%" text-anchor="middle">
+      HS INSTITUTE OF HEALTHCARE
+    </textPath>
+  </text>
+  <text font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#1e40af" letter-spacing="1.5" opacity="0.9">
+    <textPath href="#circlePathBottom" startOffset="50%" text-anchor="middle">
+      ★ VERIFIED &amp; APPROVED ★
+    </textPath>
+  </text>
+  
+  <!-- Center Code -->
+  <text x="100" y="98" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle" opacity="0.85">HS-REG</text>
+  <text x="100" y="110" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#1e40af" text-anchor="middle" opacity="0.8">OFFICIAL SEAL</text>
+
+  <!-- Signature Overlay in blue ink -->
+  <g transform="rotate(-8 100 100)" stroke="#1e3a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.95">
+    <path d="M 45 105 C 55 90, 65 75, 75 95 C 85 115, 70 130, 80 120 C 90 110, 110 85, 120 105 C 125 115, 135 100, 145 108 C 155 115, 165 95, 175 105" />
+    <path d="M 60 115 C 80 125, 130 118, 160 122" stroke-width="1.8" />
+    <circle cx="168" cy="112" r="1.5" fill="#1e3a8a" />
+  </g>
+</svg>

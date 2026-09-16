@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" width="160" height="60">
+  <!-- Dynamic fluid signature matching the sample photo -->
+  <path d="M 22,46 C 28,26 36,12 46,10 C 53,8 56,16 50,28 C 43,40 33,45 26,44 C 20,43 24,32 34,24 C 42,16 54,18 62,26 C 68,32 76,38 85,36 C 92,34 96,28 102,26 C 108,24 114,30 120,31 C 126,32 135,26 142,28" 
+        fill="none" stroke="#1d428a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 12,34 C 32,30 72,32 145,32" 
+        fill="none" stroke="#1d428a" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

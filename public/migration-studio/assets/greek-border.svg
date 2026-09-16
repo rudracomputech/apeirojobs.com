@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 790" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <!-- Seamless Greek Key / Fret horizontal tile: width 28, height 24 -->
+    <pattern id="greekKeyHorizontal" width="28" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 0,3 H 25 V 21 H 6 V 7 H 19 V 17 H 12 V 11 H 15" 
+            fill="none" stroke="#175494" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter"/>
+      <line x1="28" y1="3" x2="28" y2="21" stroke="#175494" stroke-width="2.2" />
+    </pattern>
+
+    <!-- Seamless Greek Key / Fret vertical tile: width 24, height 28 -->
+    <pattern id="greekKeyVertical" width="24" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 3,0 V 25 H 21 V 6 H 7 V 19 H 17 V 12 H 11 V 15" 
+            fill="none" stroke="#175494" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter"/>
+      <line x1="3" y1="28" x2="21" y2="28" stroke="#175494" stroke-width="2.2" />
+    </pattern>
+
+    <!-- Corner motif: 32x32 Greek Key rosette -->
+    <g id="cornerKey">
+      <rect x="0" y="0" width="32" height="32" fill="#faf7f0" stroke="#175494" stroke-width="1.8"/>
+      <path d="M 5,5 H 27 V 27 H 10 V 10 H 22 V 22 H 15 V 15 H 18" 
+            fill="none" stroke="#175494" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter"/>
+    </g>
+  </defs>
+
+  <!-- Outermost Thin Border Line -->
+  <rect x="6" y="6" width="1108" height="778" fill="none" stroke="#175494" stroke-width="1.8"/>
+
+  <!-- Mid framing line -->
+  <rect x="12" y="12" width="1096" height="766" fill="none" stroke="#175494" stroke-width="1"/>
+
+  <!-- Top Band -->
+  <rect x="44" y="13" width="1032" height="24" fill="url(#greekKeyHorizontal)"/>
+
+  <!-- Bottom Band -->
+  <rect x="44" y="753" width="1032" height="24" fill="url(#greekKeyHorizontal)"/>
+
+  <!-- Left Band -->
+  <rect x="13" y="44" width="24" height="702" fill="url(#greekKeyVertical)"/>
+
+  <!-- Right Band -->
+  <rect x="1083" y="44" width="24" height="702" fill="url(#greekKeyVertical)"/>
+
+  <!-- 4 Corner Blocks -->
+  <use href="#cornerKey" x="12" y="12"/>
+  <use href="#cornerKey" x="1076" y="12"/>
+  <use href="#cornerKey" x="12" y="746"/>
+  <use href="#cornerKey" x="1076" y="746"/>
+
+  <!-- Inner Double Solid Framing Lines -->
+  <rect x="37" y="37" width="1046" height="716" fill="none" stroke="#175494" stroke-width="1.2"/>
+  <rect x="41" y="41" width="1038" height="708" fill="none" stroke="#175494" stroke-width="0.8"/>
+</svg>

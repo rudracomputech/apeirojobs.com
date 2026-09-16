@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 50" width="60" height="50">
+  <g fill="none" stroke="#b38e44" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main outer sweep -->
+    <path d="M 58,25 C 45,25 38,10 26,8 C 14,6 4,16 6,26 C 8,36 20,42 32,38 C 42,34 50,42 58,44" />
+    <path d="M 58,25 C 48,25 40,32 30,32 C 18,32 12,24 16,18 C 20,12 28,14 30,22" />
+    <!-- Leaf / scroll accent -->
+    <path d="M 12,22 C 8,24 6,28 8,32 C 12,32 16,28 14,24 Z" fill="#b38e44" opacity="0.4"/>
+    <path d="M 28,12 C 32,8 38,9 40,14 C 36,15 31,15 28,12 Z" fill="#b38e44" opacity="0.4"/>
+    <!-- Small dots -->
+    <circle cx="6" cy="18" r="1.5" fill="#b38e44"/>
+    <circle cx="2" cy="27" r="1.5" fill="#b38e44"/>
+    <circle cx="34" cy="6" r="1.2" fill="#b38e44"/>
+  </g>
+</svg>

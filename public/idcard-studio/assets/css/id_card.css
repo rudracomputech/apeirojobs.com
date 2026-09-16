@@ -1,0 +1,500 @@
+/* ===================================================
+   ID CARD STYLES - PIXEL PERFECT REPLICA
+   =================================================== */
+
+:root {
+  --id-header-bg: linear-gradient(135deg, #1b74c2 0%, #1565c0 100%);
+  --id-header-text: #ffffff;
+  --id-accent-green: #4caf50;
+  --id-accent-maroon: #991b1b;
+  --id-text-dark: #0f172a;
+  --id-text-label: #1e293b;
+  --id-text-val: #0f172a;
+  --id-bg-card: #ffffff;
+  --id-border-color: #cbd5e1;
+}
+
+/* Card Container (Standard Landscape CR-80 Proportion 85.6mm x 54mm) */
+.id-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 85.6 / 54;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.id-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--id-bg-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  user-select: none;
+  background-color: #ffffff;
+}
+
+/* Top Header Bar */
+.id-card-header {
+  position: relative;
+  background: var(--id-header-bg);
+  padding: 8px 12px 7px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2.5px solid #43a047;
+  z-index: 2;
+}
+
+.id-header-logo-container {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.id-header-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.id-header-title-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.id-header-org-name {
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+}
+
+.id-header-subtitle {
+  color: #e0f2fe;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+/* Card Body */
+.id-card-body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 14px 8px 14px;
+  background: radial-gradient(circle at 10% 90%, rgba(76, 175, 80, 0.08) 0%, rgba(255, 255, 255, 1) 50%);
+  overflow: hidden;
+}
+
+/* Background Decorative Wave Accents */
+.id-bg-accent-left {
+  position: absolute;
+  bottom: -15px;
+  left: -20px;
+  width: 180px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.22) 0%, rgba(33, 150, 243, 0.08) 100%);
+  border-radius: 50% 60% 0 0;
+  transform: rotate(-10deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.id-bg-accent-ribbon {
+  position: absolute;
+  bottom: 6px;
+  left: 10px;
+  background: linear-gradient(90deg, #1565c0 0%, #1e88e5 100%);
+  color: #ffffff;
+  padding: 2.5px 8px 2.5px 6px;
+  border-radius: 4px;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.id-bg-accent-ribbon::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4caf50;
+}
+
+/* Sub-header (Roll No & Enrollment No) */
+.id-sub-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 3px;
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px dashed rgba(203, 213, 225, 0.8);
+  padding-bottom: 2px;
+}
+
+.id-meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.id-meta-label {
+  color: #334155;
+  font-weight: 800;
+}
+
+.id-meta-val {
+  color: #0f172a;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+/* Main Title */
+.id-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 3px 0 5px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.id-title-bar {
+  width: 14px;
+  height: 5px;
+  background-color: var(--id-accent-maroon);
+  border-radius: 1px;
+}
+
+.id-card-title {
+  color: var(--id-accent-maroon);
+  font-size: 16.5px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+}
+
+/* Main Split Content */
+.id-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 125px;
+  gap: 12px;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Student Information Fields */
+.id-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: flex-start;
+  padding-top: 1px;
+}
+
+.id-field-row {
+  display: grid;
+  grid-template-columns: 88px 8px 1fr;
+  align-items: baseline;
+  font-size: 10.5px;
+  line-height: 1.25;
+}
+
+.id-field-label {
+  color: #1e293b;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.id-field-colon {
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+}
+
+.id-field-value {
+  color: #0f172a;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.id-field-value.name-value {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.id-field-value.course-value {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.id-field-value.center-value {
+  font-size: 9.5px;
+  line-height: 1.2;
+  color: #1e293b;
+}
+
+/* Right Column: Photo and Signatory */
+.id-right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.id-photo-frame {
+  width: 96px;
+  height: 112px;
+  border: 1.5px solid #94a3b8;
+  border-radius: 6px;
+  background: #f1f5f9;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.id-student-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.id-signatory-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 4px;
+}
+
+.id-stamp-signature-wrap {
+  width: 90px;
+  height: 38px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.id-stamp-img {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 2px;
+  bottom: -2px;
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0.88;
+}
+
+.id-sign-img {
+  position: absolute;
+  width: 75px;
+  height: 32px;
+  right: 0;
+  bottom: 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.id-signatory-label {
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+  letter-spacing: 0.2px;
+  margin-top: 1px;
+}
+
+/* ===================================================
+   BACK SIDE OF CARD STYLES
+   =================================================== */
+.id-card-back {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.id-card-back-header {
+  background: var(--id-header-bg);
+  padding: 6px 12px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #43a047;
+}
+
+.id-card-back-body {
+  flex: 1;
+  padding: 8px 12px 6px 12px;
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 8px;
+  font-size: 8.5px;
+  line-height: 1.3;
+}
+
+.id-back-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #334155;
+}
+
+.id-back-title {
+  font-weight: 800;
+  color: #0f172a;
+  font-size: 9px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+
+.id-back-instructions ol {
+  margin: 0;
+  padding-left: 14px;
+}
+
+.id-back-instructions li {
+  margin-bottom: 2px;
+}
+
+.id-back-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.id-back-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  padding: 6px 4px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.id-qr-box {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+}
+
+.id-qr-box img, .id-qr-box canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.id-back-footer {
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 7.5px;
+  padding: 4px 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ===================================================
+   PRINT OPTIMIZED MEDIA QUERIES
+   =================================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-area, .printable-area * {
+    visibility: visible;
+  }
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    background: transparent !important;
+  }
+  .id-card-wrapper {
+    width: 85.6mm !important;
+    height: 54mm !important;
+    max-width: 85.6mm !important;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 0.5px solid #ccc;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .id-card {
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
