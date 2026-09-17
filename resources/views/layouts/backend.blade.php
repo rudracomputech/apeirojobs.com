@@ -5,6 +5,9 @@
 <head>
   <title>@yield('title') - HSCouching</title>
   <meta charset="UTF-8" />
+  @if(str_starts_with(config('app.url'), 'https://') || app()->environment('production'))
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  @endif
 
   <meta name="keywords" content="HSCouching, healthcare, jobs" />
   <meta name="description" content="HSCouching is a platform for finding healthcare jobs." />
